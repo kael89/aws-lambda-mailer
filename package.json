@@ -1,0 +1,25 @@
+{
+  "name": "aws-lambda-mailer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'No test runner specified' && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kael89/aws-lambda-mailer.git"
+  },
+  "author": "Kostas Karvounis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kael89/aws-lambda-mailer/issues"
+  },
+  "homepage": "https://github.com/kael89/aws-lambda-mailer#readme",
+  "dependencies": {
+    "nodemailer": "^6.4.5"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
