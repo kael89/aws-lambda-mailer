@@ -1,7 +1,7 @@
 {
   "name": "aws-lambda-mailer",
   "version": "1.0.0",
-  "description": "",
+  "description": "AWS Lambda function for serverless email sending",
   "main": "index.js",
   "scripts": {
     "test": "echo 'No test runner specified' && exit 1"
