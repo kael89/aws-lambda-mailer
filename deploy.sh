@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+# Extracts a variable from .env file
+# Usage: read_dotenv {{ variable }}
 read_dotenv() {
     grep $1 .env | cut -d '=' -f 2-
 }
@@ -8,7 +10,7 @@ read_dotenv() {
 ZIP_FILE="lambda.zip"
 FILES_TO_INCLUDE="node_modules/nodemailer index.js"
 
-region=$(read_dotenv "AWS_REGION")
+region=$(read_dotenv AWS_REGION)
 function_name=$(read_dotenv AWS_FUNCTION_NAME)
 
 echo "Installing dependencies..."

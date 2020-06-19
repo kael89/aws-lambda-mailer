@@ -16,6 +16,13 @@ const transporter = createTransport({
   },
 });
 
+/**
+ * Sends an email using the fields provided in the `event` parameter
+ *
+ * @param {{ from, to, subject, text, html }} event - All fields are mandatory
+ * @returns {{ statusCode, body }}
+ * @throws {Error} if a required field is missing
+ */
 const handler = async event => {
   const { from, to, subject, text, html } = event;
   const args = { from, to, subject, text, html };
