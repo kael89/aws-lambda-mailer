@@ -32,7 +32,7 @@ npm install aws-sdk
 An example implementation:
 
 ```js
-import Lambda from 'aws-sdk/clients/lambda';
+const Lambda = require('aws-sdk/clients/lambda');
 
 const SEND_EMAIL_LAMBDA = 'myLambdaFunctionName'; // Your Lambda function name here
 
@@ -42,7 +42,7 @@ const lambda = new Lambda({
   region: process.env.AWS_REGION,
 });
 
-export const sendEmail = (data, callback) => {
+const sendEmail = (data, callback) => {
   const { from, to, subject, text, html } = data;
   const payload = { from, to, subject, text, html };
 
@@ -52,9 +52,16 @@ export const sendEmail = (data, callback) => {
       InvocationType: 'Event',
       Payload: JSON.stringify(payload),
     },
-    callback,
+    /**
+     * @function
+     * @param {?Error} error
+     * @param {?{ StatusCode, Payload }} results
+     */
+    (error, results) => callback(error, results),
   );
 };
+
+module.exports = sendEmail;
 ```
 
 We also need to provide `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_REGION` in the execution environment.
